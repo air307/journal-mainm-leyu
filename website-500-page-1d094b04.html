@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站点导航 · 500万网彩票介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fdefd4 0%, #fce7c8 40%, #f5d7a1 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem 3rem;
+            line-height: 1.6;
+            color: #2e241b;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 235, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 60px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(180, 120, 60, 0.08);
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #7a5a3a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5e4530;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b27d4b;
+            color: #3f2d1e;
+        }
+
+        /* 英雄区 */
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #3b2a1c;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 1.2rem;
+            color: #5b4635;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255, 235, 210, 0.6);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #6b4f35;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 24px rgba(160, 110, 60, 0.08);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid rgba(230, 200, 170, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(150, 100, 50, 0.12);
+        }
+
+        /* 介绍区 */
+        .intro-section {
+            margin-bottom: 2.4rem;
+        }
+
+        .intro-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .intro-grid .card {
+            flex: 1 1 280px;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #4d3626;
+            letter-spacing: 0.3px;
+        }
+
+        .card p {
+            color: #4a3a2c;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .link-sentence {
+            margin-top: 0.8rem;
+        }
+
+        .card a {
+            color: #9d6d42;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .card a:hover {
+            border-bottom-color: #9d6d42;
+        }
+
+        /* 三个场景模块 */
+        .scenes {
+            margin: 2.2rem 0 2.2rem;
+        }
+
+        .scenes h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #3f2d1e;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3px;
+            padding-left: 0.2rem;
+        }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .scene-item {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 260px;
+            box-shadow: 0 6px 18px rgba(150, 105, 60, 0.06);
+            border: 1px solid rgba(220, 190, 160, 0.2);
+            transition: all 0.2s;
+        }
+
+        .scene-item:hover {
+            background: #fffcf8;
+            box-shadow: 0 8px 24px rgba(160, 115, 65, 0.1);
+        }
+
+        .scene-item .emoji-tag {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .scene-item h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4d3626;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-item p {
+            color: #4f3d2e;
+            font-size: 0.95rem;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-section {
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #3f2d1e;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: #fffbf5;
+            border-radius: 24px;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid rgba(215, 185, 155, 0.2);
+            box-shadow: 0 2px 8px rgba(140, 95, 50, 0.04);
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #3f2d1e;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-answer {
+            color: #5a4636;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer a {
+            color: #9d6d42;
+            text-decoration: none;
+            border-bottom: 1px dotted #c9a77c;
+        }
+
+        .faq-answer a:hover {
+            border-bottom-style: solid;
+            color: #7a5537;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7a644f;
+            border-top: 1px solid rgba(180, 150, 120, 0.2);
+            padding-top: 2rem;
+        }
+
+        .footer-note span {
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 0.6rem;
+                padding: 1rem;
+                border-radius: 40px;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card, .scene-item, .faq-item {
+                padding: 1.5rem;
+            }
+
+            .intro-grid, .scene-grid {
+                gap: 1.2rem;
+            }
+
+            .faq-item {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.8rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="brand">✦ 站信导航</span>
+        <div class="nav-links">
+            <a href="#intro">站点</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="hero">
+        <h1>关于站点 · 可信视角</h1>
+        <p>一个信息聚合与引导的轻量介绍页，围绕彩票相关内容做客观说明，不渲染、不诱导，只提供必要的指引。</p>
+        <span class="tagline">中立 · 叙述 · 结构清晰</span>
+    </header>
+
+    <!-- 核心介绍区 (两个卡片) -->
+    <section class="intro-section" id="intro">
+        <div class="intro-grid">
+            <div class="card">
+                <h3>站点定位</h3>
+                <p>提供彩票资讯与工具参考的综合性站点，内容涵盖玩法说明、数据整理以及相关常识。没有夸张口号，只有平实的介绍。</p>
+                <div class="link-sentence">
+                    如需要了解该平台，可浏览 <a href="https://website-500.com">500万网彩票</a> 上的公开信息。
+                </div>
+            </div>
+            <div class="card">
+                <h3>可信说明</h3>
+                <p>所有公开内容均基于合规前提，不提供任何形式的投注引导。本站仅作为信息索引，辅助用户自主判断。</p>
+                <p style="margin-top: 0.6rem;">平台本身由专业团队维护，数据更新保持稳定，更多细节可参考 <a href="https://website-500.com">500万网彩票</a> 的官方说明。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section class="scenes" id="scenes">
+        <h2>常见使用场景</h2>
+        <div class="scene-grid">
+            <div class="scene-item">
+                <div class="emoji-tag">📊</div>
+                <h4>信息查阅</h4>
+                <p>用户通过平台获取历史数据、规则解读以及玩法对比，所有内容均以文字表格呈现，方便对比参考。</p>
+            </div>
+            <div class="scene-item">
+                <div class="emoji-tag">🧭</div>
+                <h4>工具辅助</h4>
+                <p>提供简单的随机模拟与概率计算功能，帮助用户从数学角度理解游戏机制，而非依靠直觉。</p>
+            </div>
+            <div class="scene-item">
+                <div class="emoji-tag">📋</div>
+                <h4>常识浏览</h4>
+                <p>包含责任彩票提示、风险科普以及常见问题汇编，适合新用户快速建立基本认知。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见说明／FAQ摘要 -->
+    <section class="faq-section" id="faq">
+        <h2>常见说明</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">▸ 这个介绍页与主站是什么关系？</div>
+                <div class="faq-answer">属于独立的引导页，方便快速了解 <a href="https://website-500.com">500万网彩票</a> 的基础定位与内容方向，不含交易或注册入口。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▸ 信息是否有保障？</div>
+                <div class="faq-answer">页面内容均来自公开可查的资料整理，不做主观臆断。具体规则以 <a href="https://website-500.com">500万网彩票</a> 实时页面为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▸ 为什么强调“克制叙述”？</div>
+                <div class="faq-answer">彩票类信息容易引发非理性联想，因此本页只陈述事实和功能，不渲染收益、不制造紧迫感，保持中性的信息环境。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer-note">
+        <span>内容索引 · 仅供参考 · 理性对待</span>
+    </footer>
+
+</div>
+</body>
+</html>
